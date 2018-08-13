@@ -1,22 +1,23 @@
-const { ApolloServer } = require('apollo-server');
-const { Prisma } = require('prisma-binding')
+require('dotenv').config();
+const {ApolloServer} = require('apollo-server');
+const {Prisma} = require('prisma-binding');
 const resolvers = require('./resolvers');
-const typeDefs = require('./schema')
+const typeDefs = require('./schema');
 
 const server = new ApolloServer({
   cors: false,
   typeDefs,
   resolvers,
-  context: req => ({
+  context: (req) => ({
     ...req,
     prisma: new Prisma({
       typeDefs: 'src/generated/prisma.graphql',
-      endpoint: 'http://localhost:4466'
-    })
-  })
+      endpoint: process.env.PRISMA_URL,
+    }),
+  }),
 });
 
-server.listen({ port: 4000 }).then(({ url }) => {
-  console.log(`🚀  Server ready at ${url}`)
-})
+server.listen({port: process.env.PORT}).then(({url}) => {
+  console.log(`🚀  Server ready at ${url}`);
+});
 

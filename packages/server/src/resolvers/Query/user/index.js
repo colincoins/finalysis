@@ -1,11 +1,11 @@
 const userQuery = {
-  user: (_, { id }, ctx, __) => {
-    return ctx.prisma.query.user({ 
+  user: (_, {id}, ctx, __) => {
+    return ctx.prisma.query.user({
       where: {
-        id
-      }
-    })
-  }
-}
+        id,
+      },
+    });
+  },
+};
 
-module.exports = { userQuery }
+module.exports = {userQuery};

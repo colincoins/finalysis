@@ -1,7 +1,7 @@
-const { userQuery } = require('./Query/user');
+const {userQuery} = require('./Query/user');
 
 module.exports = {
   Query: {
     ...userQuery,
-  }
-}
+  },
+};
