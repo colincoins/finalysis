@@ -6,7 +6,7 @@ const {makeExecutableSchema} = require('graphql-tools');
 const resolvers = require('./resolvers');
 const typeDefs = require('./schema');
 
-async function main() {
+async function startServer() {
   const logInputMiddleware = async (resolve, root, args, context, info) => {
     console.log(`1 -> logInputMiddleware - Input arguments:  ${JSON.stringify(args)}`);
     const result = await resolve(root, args, context, info);
@@ -42,4 +42,5 @@ async function main() {
   });
 };
 
-main();
+// startServer();
+module.exports = {startServer};

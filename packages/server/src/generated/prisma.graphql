@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Mon Aug 13 2018 21:26:55 GMT-0700 (PDT)
+# timestamp: Mon Aug 13 2018 22:59:07 GMT-0700 (PDT)
 
 type AggregateUser {
   count: Int!
@@ -70,7 +70,7 @@ type Subscription {
 
 type User implements Node {
   id: ID!
-  name: String!
+  name: String
   email: String!
   password: String!
 }
@@ -86,7 +86,7 @@ type UserConnection {
 }
 
 input UserCreateInput {
-  name: String!
+  name: String
   email: String!
   password: String!
 }
@@ -117,7 +117,7 @@ enum UserOrderByInput {
 
 type UserPreviousValues {
   id: ID!
-  name: String!
+  name: String
   email: String!
   password: String!
 }
@@ -340,4 +340,5 @@ input UserWhereInput {
 
 input UserWhereUniqueInput {
   id: ID
+  email: String
 }

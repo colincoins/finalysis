@@ -6,12 +6,12 @@ type Query {
 }
 
 type Mutation {
-  register(email: String!, password: String!, name: String!): [Error]
+  register(email: String!, password: String!): [Error]
 }
 
 type User {
   id: ID! @unique
-  name: String!
+  name: String
   email: String!
   password: String!
 }
